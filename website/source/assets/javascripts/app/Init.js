@@ -1,62 +1,62 @@
 (function(Sidebar, DotLockup){
 
-// Quick and dirty IE detection
-var isIE = (function(){
-	if (window.navigator.userAgent.match('Trident')) {
-		return true;
-	} else {
-		return false;
-	}
-})();
+  // Quick and dirty IE detection
+  var isIE = (function(){
+    if (window.navigator.userAgent.match('Trident')) {
+      return true;
+    } else {
+      return false;
+    }
+  })();
 
-// isIE = true;
+  // isIE = true;
 
-var Init = {
+  var Init = {
 
-	start: function(){
-		var id = document.body.id.toLowerCase();
+    start: function(){
+      var id = document.body.id.toLowerCase();
 
-		if (this.Pages[id]) {
-			this.Pages[id]();
-		}
-	},
+      if (this.Pages[id]) {
+        this.Pages[id]();
+      }
+    },
 
-	initializeSidebar: function(){
-		new Sidebar();
-	},
+    initializeSidebar: function(){
+      new Sidebar();
+    },
 
-	initializeDotLockup: function(){
-		new DotLockup();
-	},
+    initializeDotLockup: function(){
+      new DotLockup();
+    },
 
-	initializeWaypoints: function(){
-		$('#header').waypoint(function(event, direction) {
-		    $(this.element).addClass('showit');
-		}, {
-		    offset: function() {
-		    	return '25%';
-		    }
-		});
+    initializeWaypoints: function(){
+      $('#header').waypoint(function(event, direction) {
+        $(this.element).addClass('showit');
+      }, {
+        offset: function() {
+          return '25%';
+        }
+      });
 
-		$('#hero').waypoint(function(event, direction) {
-		    $(this.element).addClass('showit');
-		}, {
-		    offset: function() {
-		    	return '25%';
-		    }
-		});			
-	},	
+      $('#hero').waypoint(function(event, direction) {
+        $(this.element).addClass('showit');
+      }, {
+        offset: function() {
+          return '25%';
+        }
+      });
+    },
 
-	Pages: {
-		'page-home': function(){
-			Init.initializeSidebar();
-			Init.initializeDotLockup();
-			Init.initializeWaypoints();
-		}
-	}
+    Pages: {
+      'page-home': function(){
+        Init.initializeSidebar();
+        Init.initializeDotLockup();
+        Init.initializeWaypoints();
+      }
+    }
 
-};
+  };
 
-Init.start();
+  Init.start();
 
 })(window.Sidebar, window.DotLockup);
